@@ -1,0 +1,77 @@
+/* src/pages/HomePage.module.css */
+
+.pageWrapper {
+  background-color: #0a0a0a;
+  color: #ededed;
+
+  /* --- THE FIX: Use CSS Grid for layout --- */
+  display: grid;
+  grid-template-rows: auto; /* Each child will create its own row */
+}
+
+
+
+.textSectionContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+  position: relative; /* This is important! */
+  /* Remove z-index */
+}
+/* --- ALL OTHER STYLES BELOW REMAIN THE SAME --- */
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  position: relative; /* Ensure it creates a stacking context */
+  z-index: 2; /* Lift above the lines */
+}
+
+.heroHeadline {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ffffff, #a0a0a0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  z-index:2;
+}
+
+.heroTagline {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-weight: 300;
+  color: #b3b3b3;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.wordWrapper {
+  display: inline-block;
+  margin-right: 0.25em;
+  white-space: nowrap;
+}
+
+.heroCtaButton {
+  background-color: #ffffff;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.heroCtaButton:hover {
+  background-color: #dcdcdc;
+}

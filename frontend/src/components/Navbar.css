@@ -1,0 +1,32 @@
+/* src/components/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--french-grey);
+}
+
+.navbar-logo img {
+  height: 80px; /* Adjust the size of your logo */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--slate-grey);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--black);
+}

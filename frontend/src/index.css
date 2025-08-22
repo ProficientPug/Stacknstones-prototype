@@ -1,0 +1,26 @@
+/* src/index.css */
+
+/* 1. Import the Lato font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* 2. Define your color palette as CSS variables */
+:root {
+  --black: #050404;
+  --white: #FCFCFC;
+  --slate-grey: #222223;
+  --davys-grey: #B2AAB5; /* Corrected from 5T5F60, as 'T' is not a valid hex character */
+  --sage-grey: #8AA5A1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--white); /* Set the background color to white */
+  color: var(--slate-grey); /* Use a dark grey for default text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}

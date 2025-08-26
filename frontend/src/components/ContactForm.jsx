@@ -45,8 +45,8 @@ function ContactForm() {
 
     try {
       // This is the endpoint on your backend server we will create later
-      const response = await fetch('http://localhost:3001/api/send-message', {
-        method: 'POST',
+    const response = await fetch('https://my-portfolio-backend.onrender.com/api/send-message', {
+    method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },

@@ -1,11 +1,10 @@
-// src/pages/HomePage.jsx
-
-import React, { useRef, useEffect, useState } from 'react';
-import { motion,useInView} from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import ScrollingImageMask from '../components/ScrollingImageMask'; 
-import { ShootingLines } from '../components/ShootingLines';
+import ScrollingImageMask from '../components/ScrollingImageMask';
+import ContactForm from '../components/ContactForm';
+
 // --- Animation variants for the text section ---
 const containerVariants = {
   hidden: {},
@@ -49,39 +48,23 @@ function HomePage() {
 
   const headline = "Building Tomorrow's Visions.";
   const tagline = 'Expert constructions for residential and commercial projects.';
-   // --- Animation Trigger Logic ---
+
+  // --- Animation Trigger Logic ---
   const textSectionRef = useRef(null);
   const isInView = useInView(textSectionRef, { once: true, amount: 0.5 });
-  const [startLines, setStartLines] = useState(false);
 
-  useEffect(() => {
-    if (isInView) {
-      // A small delay before firing the lines for a better effect
-      setTimeout(() => {
-        setStartLines(true);
-      }, 300); // 300ms delay
-    }
-  }, [isInView]);
-
- return (
+  return (
     <div className={styles.pageWrapper}>
-      {/* Add the ShootingLines component here, it will be fixed to the screen */}
-     
-      {/* This simple wrapper div fixes the animation trigger */}
+      {/* --- HERO AND SCROLLING SECTIONS --- */}
       <div>
         <ScrollingImageMask />
-
         <div ref={textSectionRef} className={styles.textSectionContainer}>
-           <ShootingLines animate={startLines} />
-  
           <motion.div
             className={styles.heroContent}
             variants={containerVariants}
             initial="hidden"
-            // Animate when the section is in view
             animate={isInView ? 'visible' : 'hidden'}
           >
-            {/* The rest of the text and button components are unchanged */}
             <motion.h1
               className={styles.heroHeadline}
               variants={lineVariants}
@@ -97,7 +80,6 @@ function HomePage() {
                 </motion.span>
               ))}
             </motion.h1>
-
             <motion.p
               className={styles.heroTagline}
               variants={lineVariants}
@@ -113,7 +95,6 @@ function HomePage() {
                 </motion.span>
               ))}
             </motion.p>
-
             <motion.div variants={itemVariants}>
               <motion.button
                 className={styles.heroCtaButton}
@@ -128,6 +109,10 @@ function HomePage() {
           </motion.div>
         </div>
       </div>
+      
+      {/* --- CONTACT FORM SECTION --- */}
+      <ContactForm />
+
     </div>
   );
 }

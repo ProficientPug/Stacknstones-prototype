@@ -45,7 +45,7 @@ function ContactForm() {
 
     try {
       // This is the endpoint on your backend server we will create later
-    const response = await fetch('https://my-portfolio-backend.onrender.com/api/send-message', {
+    const response = await fetch('https://stacknstones-prototype.onrender.com/api/send-message', {
     method: 'POST',
         headers: {
           'Content-Type': 'application/json',

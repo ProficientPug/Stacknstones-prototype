@@ -5,6 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const Project = require('./models/projectModel'); 
 const Member = require('./models/memberModel')
+const nodemailer = require('nodemailer');
 require('dotenv').config(); // Loads environment variables
 
 const app = express();
@@ -43,6 +44,48 @@ app.get('/api/about', async (req, res) => {
     res.json(members);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching about section data' });
+  }
+});
+
+app.post('/api/send-message', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+
+  try {
+    // 1. Create the Nodemailer Transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // 2. Define the email's content
+    const mailOptions = {
+      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // Sending the email to yourself
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h1>New Website Inquiry</h1>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+        <hr>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+    };
+
+    // 3. Send the email
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully!');
+
+    // 4. Send a success response back to the frontend
+    res.status(200).json({ success: 'Message sent successfully!' });
+
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ error: 'Failed to send message.' });
   }
 });
 

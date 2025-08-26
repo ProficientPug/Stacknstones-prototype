@@ -10,7 +10,6 @@ import './App.css';
 
 function App() {
   return (
-    <Routes>
       <div className="App">
         <Navbar />
         <main>
@@ -22,7 +21,6 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Routes>
   );
 }
 

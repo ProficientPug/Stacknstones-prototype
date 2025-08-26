@@ -20,7 +20,12 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err));
 
-
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'online', 
+    message: 'API is alive and running!' 
+  });
+})
 // A simple test route
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello from the backend! 👋' });

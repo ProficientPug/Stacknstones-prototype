@@ -55,6 +55,8 @@ app.get('/api/about', async (req, res) => {
 app.post('/api/send-message', async (req, res) => {
   const { name, email, phone, message } = req.body;
 
+  console.log("Attempting to send email with user:", process.env.EMAIL_USER);
+  console.log("Does EMAIL_PASS exist?", !!process.env.EMAIL_PASS);
   try {
     // 1. Create the Nodemailer Transporter
     const transporter = nodemailer.createTransport({

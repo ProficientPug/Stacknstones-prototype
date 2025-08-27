@@ -19,7 +19,7 @@ function About() {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/about');
+        const response = await axios.get('https://stacknstones-prototype.onrender.com/api/about');
         setMembers(response.data);
       } catch (error) {
         console.error("Error fetching about data:", error);

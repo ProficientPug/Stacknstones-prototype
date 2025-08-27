@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HashRouter basename="/Stacknstones-prototype">
+    <HashRouter>
       <App />
     </HashRouter>
   </React.StrictMode>

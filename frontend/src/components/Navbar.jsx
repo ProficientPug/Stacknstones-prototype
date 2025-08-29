@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css'; // Assuming you use CSS Modules
-import logo from '../assets/logo.png'; // Make sure to import your logo
+import logo from '../assets/logo.jpg'; // Make sure to import your logo
 
 function Navbar() {
   // 1. Add state to track if the menu is open

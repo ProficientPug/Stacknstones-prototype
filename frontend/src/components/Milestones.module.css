@@ -1,4 +1,3 @@
-
 .milestonesSection {
   padding: 80px 20px;
   background-color: #111; /* A slightly off-black for contrast */
@@ -24,7 +23,7 @@
 .milestoneValue {
   font-size: 4rem;
   font-weight: 700;
-  color: #6A7889; /* A highlight color */
+  color: #FFFFFF; /* Changed to white as per your last request */
   margin: 0 0 10px 0;
 }
 
@@ -34,10 +33,21 @@
   margin: 0;
 }
 
+/* --- Mobile Optimization --- */
 @media (max-width: 768px) {
+  .milestonesSection {
+    padding: 60px 20px; /* Reduced vertical padding */
+  }
+
+  .milestonesContainer {
+    flex-direction: column; /* Stack items vertically on mobile */
+    gap: 50px; /* Adjust gap for the new vertical layout */
+  }
+  
   .milestoneValue {
     font-size: 3rem;
   }
+
   .milestoneLabel {
     font-size: 1rem;
   }

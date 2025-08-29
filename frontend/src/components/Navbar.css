@@ -1,18 +1,19 @@
-/* src/components/Navbar.css */
+/* --- Default Desktop Styles --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--french-grey);
+  background-color: #fff; /* Example color */
+  border-bottom: 1px solid #ddd;
+  position: relative; /* Needed for positioning the mobile menu */
 }
 
-.navbar-logo img {
-  height: 80px; /* Adjust the size of your logo */
+.navbarLogo img {
+  height: 80px;
 }
 
-.navbar-links {
+.navbarLinks {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -20,13 +21,60 @@
   padding: 0;
 }
 
-.navbar-links a {
+.navbarLinks a {
   text-decoration: none;
-  color: var(--slate-grey);
+  color: #333; /* Example color */
   font-weight: 700;
   transition: color 0.3s ease;
 }
 
-.navbar-links a:hover {
-  color: var(--black);
+.navbarLinks a:hover {
+  color: #007bff; /* Example color */
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+  /* Hide the links by default on mobile */
+  .navbarLinks {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position it right below the navbar */
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* When the menu is open, make the links visible */
+  .navbarLinks.open {
+    display: flex;
+  }
+  
+  /* Show the hamburger icon on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Adjust logo size for mobile */
+  .navbarLogo img {
+    height: 60px;
+  }
 }

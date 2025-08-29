@@ -93,3 +93,31 @@
   color: #dc3545;
   font-weight: bold;
 }
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 60px 15px; /* Reduced padding for smaller screens */
+  }
+
+  .contactContainer h2 {
+    font-size: 2.25rem; /* Smaller heading for mobile */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Slightly smaller subtitle */
+    margin-bottom: 30px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px; /* Slightly smaller padding inside form fields */
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    width: 100%; /* Make button full-width for easier tapping */
+    padding: 15px;
+    font-size: 1rem;
+  }
+}

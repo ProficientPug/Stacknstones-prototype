@@ -70,7 +70,7 @@ app.post('/api/send-message', async (req, res) => {
       reply_to: email,
       
       html: `
-        <h1>New Website Inquiry</h1>
+        <h1>New Inquiry</h1>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>

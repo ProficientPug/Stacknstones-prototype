@@ -1,78 +1,123 @@
-import React, { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from '@studio-freight/lenis';
-import styles from './ScrollingImageMask.module.css';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import styles from './HomePage.module.css';
+import ScrollingImageMask from '../components/ScrollingImageMask';
+import ContactForm from '../components/ContactForm';
+import Milestones from '../components/Milestones';
 
-const imageModules = import.meta.glob('../assets/images/*.{jpg,jpeg,png}', { eager: true });
-const localImages = Object.values(imageModules).map(module => module.default);
+// --- Animation variants for the text section ---
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-gsap.registerPlugin(ScrollTrigger);
+const lineVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 100,
+      staggerChildren: 0.09,
+    },
+  },
+};
 
-const imagesToUse = localImages.slice(0, 5);
+const itemVariants = {
+  hidden: { y: 70, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 100,
+    },
+  },
+};
 
-function ScrollingImageMask() {
-  const componentRef = useRef(null);
-  const imagesRef = useRef(null);
+function HomePage() {
+  const navigate = useNavigate();
+  const handleNavigateToProjects = () => navigate('/projects');
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const lenis = new Lenis();
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
+  const headline = "Building Tomorrow's Visions.";
+  const tagline = 'Expert constructions for residential and commercial projects.';
 
-      const allImages = gsap.utils.toArray(imagesRef.current.children);
-
-      // This timeline will now run on ALL screen sizes
-      const masterTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: componentRef.current,
-          start: 'top top',
-          end: `+=${(allImages.length + 0.5) * 700}`,
-          pin: true,
-          scrub: 1.5,
-        },
-      });
-      
-      masterTimeline.to({}, { duration: 0.1 });
-
-      allImages.forEach((img, index) => {
-        if (index === allImages.length - 1) return;
-        masterTimeline.to(img, {
-          maskImage: `linear-gradient(130deg, black 0%, transparent 0%, transparent 100%, black 100%)`,
-          WebkitMaskImage: `linear-gradient(130deg, black 0%, transparent 0%, transparent 100%, black 100%)`,
-          duration: 1,
-        }, ">-0.4");
-      });
-      
-      masterTimeline.to(imagesRef.current, {
-        opacity: 0,
-        duration: 0.5,
-      }, ">-0.5");
-
-    }, componentRef);
-
-    return () => ctx.revert();
-  }, []);
+  // --- Animation Trigger Logic ---
+  const textSectionRef = useRef(null);
+  const isInView = useInView(textSectionRef, { once: true, amount: 0.5 });
 
   return (
-    <div ref={componentRef} className={styles.hero}>
-      <div ref={imagesRef} className={styles.images}>
-        {imagesToUse.map((src, index) => (
-          <div
-            key={index}
-            className={styles.maskImg}
-            style={{ zIndex: imagesToUse.length - index }}
+    <div className={styles.pageWrapper}>
+      {/* --- HERO AND SCROLLING SECTIONS --- */}
+      <div>
+        <ScrollingImageMask />
+        <div ref={textSectionRef} className={styles.textSectionContainer}>
+          <motion.div
+            className={styles.heroContent}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
           >
-            <img src={src} alt={`scroll animation image ${index + 1}`} loading="lazy" />
-          </div>
-        ))}
+            <motion.h1
+              className={styles.heroHeadline}
+              variants={lineVariants}
+              aria-label={headline}
+            >
+              {headline.split(' ').map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={itemVariants}
+                  className={styles.wordWrapper}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
+            <motion.p
+              className={styles.heroTagline}
+              variants={lineVariants}
+              aria-label={tagline}
+            >
+              {tagline.split(' ').map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={itemVariants}
+                  className={styles.wordWrapper}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <motion.button
+                className={styles.heroCtaButton}
+                onClick={handleNavigateToProjects}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              >
+                View Our Work
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
+      {/* --- MILESTONES SECTION --- */}
+      <Milestones /> {/* 2. Add the component here */}
+      
+      {/* --- CONTACT FORM SECTION --- */}
+      <ContactForm />
+
     </div>
   );
 }
 
-export default ScrollingImageMask;
+export default HomePage;

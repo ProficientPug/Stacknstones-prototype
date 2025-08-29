@@ -59,13 +59,10 @@ app.post('/api/send-message', async (req, res) => {
   try {
     const { data, error } = await resend.emails.send({
       // ✅ Use your verified email address here
-      from: 'Stacknstones Website <stacknstones.construct@gmail.com>',
+      from: '<stacknstones.construct@gmail.com>',
       
       // ✅ The recipient must also be your verified email address
       to: ['stacknstones.construct@gmail.com'],
-      
-      // This ensures you can reply directly to the person who filled out the form
-      reply_to: email, 
       
       subject: `New Contact Form Submission from ${name}`,
       

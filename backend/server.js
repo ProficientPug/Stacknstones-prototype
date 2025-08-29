@@ -58,13 +58,16 @@ app.post('/api/send-message', async (req, res) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      // ✅ Use your verified email address here
-      from: 'stacknstones.construct@gmail.com',
+      // ✅ This MUST be Resend's default email address for now.
+      from: 'onboarding@resend.dev',
       
-      // ✅ The recipient must also be your verified email address
+      // ✅ This is your personal email where you'll receive the notification.
       to: ['stacknstones.construct@gmail.com'],
       
       subject: `New Contact Form Submission from ${name}`,
+      
+      // ✅ This line is CRITICAL so you can reply to the actual user.
+      reply_to: email,
       
       html: `
         <h1>New Website Inquiry</h1>

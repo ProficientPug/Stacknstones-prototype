@@ -62,10 +62,10 @@ app.post('/api/send-message', async (req, res) => {
     const { data, error } = await resend.emails.send({
       // This is the email address you will send from.
       // You must verify this email in your Resend account first.
-      from: 'onboarding@resend.dev', // Example from Resend, change to your verified email
+      from: 'stacknstones.construct@gmail.com', // Example from Resend, change to your verified email
       
       // This is the email address you want to receive the notifications at.
-      to: ['your-personal-email@example.com'], // Change this to your email
+      to: ['stacknstones.construct@gmail.com'], // Change this to your email
       
       subject: `New Contact Form Submission from ${name}`,
       

@@ -59,7 +59,7 @@ app.post('/api/send-message', async (req, res) => {
   try {
     const { data, error } = await resend.emails.send({
       // ✅ Use your verified email address here
-      from: '<stacknstones.construct@gmail.com>',
+      from: 'stacknstones.construct@gmail.com',
       
       // ✅ The recipient must also be your verified email address
       to: ['stacknstones.construct@gmail.com'],

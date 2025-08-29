@@ -3,7 +3,7 @@ import axios from 'axios';
 import './ProjectsPage.css';
 
 // 1. DYNAMICALLY IMPORT IMAGES AND CREATE A LOOKUP MAP
-const imageModules = import.meta.glob('../assets/images/*.jpg', { eager: true });
+const imageModules = import.meta.glob('../assets/images/*.{jpg,jpeg,png}', { eager: true });
 
 const localImagesMap = Object.keys(imageModules).reduce((acc, path) => {
   // Extracts the filename (e.g., "image1.jpg") from the full path

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import ScrollingImageMask from '../components/ScrollingImageMask';
 import ContactForm from '../components/ContactForm';
+import Milestones from '../components/Milestones';
 
 // --- Animation variants for the text section ---
 const containerVariants = {
@@ -109,6 +110,8 @@ function HomePage() {
           </motion.div>
         </div>
       </div>
+      {/* --- MILESTONES SECTION --- */}
+      <Milestones /> {/* 2. Add the component here */}
       
       {/* --- CONTACT FORM SECTION --- */}
       <ContactForm />

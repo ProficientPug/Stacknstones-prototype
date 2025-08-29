@@ -1,0 +1,43 @@
+.milestonesSection {
+  padding: 80px 20px;
+  background-color: #111; /* A slightly off-black for contrast */
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.milestonesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.milestoneItem {
+  flex: 1;
+  min-width: 250px;
+}
+
+.milestoneValue {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #007bff; /* A highlight color */
+  margin: 0 0 10px 0;
+}
+
+.milestoneLabel {
+  font-size: 1.2rem;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .milestoneValue {
+    font-size: 3rem;
+  }
+  .milestoneLabel {
+    font-size: 1rem;
+  }
+}

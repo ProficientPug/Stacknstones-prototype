@@ -31,7 +31,7 @@ function ScrollingImageMask() {
         scrollTrigger: {
           trigger: componentRef.current,
           start: 'top top',
-          end: `+=${(allImages.length + 0.5) * 700}`,
+          end: `+=${(allImages.length + 0.5) * 400}`,
           pin: true,
           scrub: 1.5,
         },

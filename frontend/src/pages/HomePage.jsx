@@ -114,22 +114,7 @@ function HomePage() {
                 </motion.span>
               ))}
             </motion.h2>
-            <motion.h1
-              className={styles.heroHeadline}
-              variants={lineVariants}
-              aria-label={headline}
-            >
-              {headline.split(' ').map((word, index) => (
-                <motion.span
-                  key={index}
-                  variants={itemVariants}
-                  className={styles.wordWrapper}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </motion.h1>
-
+           
             <motion.p
               className={styles.heroTagline}
               variants={lineVariants}

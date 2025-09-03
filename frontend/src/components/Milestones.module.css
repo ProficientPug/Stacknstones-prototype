@@ -1,18 +1,14 @@
-/*
- * Minimalist Architectural Theme for Milestones
- * - Uses a subtle, complementary background for elegant separation.
- * - Typography and colors are consistent with the main homepage theme.
- * - Increased vertical spacing enhances the clean, premium feel.
- */
+
 
 .milestonesSection {
-  /* A slightly darker, warm gray to distinguish from the hero section */
+
   background-color: #e9e5dc; 
-  padding: 120px 20px; /* Increased padding for more breathing room */
+  padding: 120px 20px; 
   text-align: center;
-  /* Adds a fine, architectural line to frame the section */
   border-top: 1px solid #dcd8d0;
   border-bottom: 1px solid #dcd8d0;
+  position: relative; 
+  z-index: 2;
 }
 
 .milestonesContainer {

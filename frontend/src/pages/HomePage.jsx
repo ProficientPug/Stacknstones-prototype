@@ -19,10 +19,11 @@ function HomePage() {
       <ScrollingImageMask />
       
       {/* Section 2: The new GSAP-powered parallax text intro */}
-      <ParallaxIntro />
+ 
 
       {/* Section 3: The milestones section */}
       <Milestones />
+      <ParallaxIntro />
       
       {/* Section 4: The contact form section */}
       <ContactForm />

@@ -20,19 +20,19 @@
   position: absolute;
   font-size: clamp(3rem, 10vw, 6rem); /* Much bigger */
   font-weight: 500;
-  color: #16161679; 
+  color:#2d2d2dC0;; 
   line-height: 1.1;
   max-width: 50%;
 }
 
 .phraseTopLeft {
-  top: 5%;
-  left: 55%;
+  top: 15%;
+  left: 5%;
   text-align: left;
 }
 
 .phraseBottomRight {
-  bottom: 5%;
+  bottom: 15%;
   right: 5%;
   text-align: right;
 }

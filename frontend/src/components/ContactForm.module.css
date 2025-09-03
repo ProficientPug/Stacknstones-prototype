@@ -1,11 +1,19 @@
+/*
+ * Minimalist Architectural Theme for Contact Form
+ * - Light and airy, consistent with the overall page theme.
+ * - Clean, understated form fields that are easy to read.
+ * - Button style is identical to the main CTA for brand consistency.
+ */
+
 .contactSection {
-  padding: 80px 20px;
-  background-color: #0a0a0a; /* Dark background to match */
-  color: #f0f0f0;
+  padding: 120px 20px;
+  /* Uses the primary light background for a seamless feel */
+  background-color: #f4f1ea; 
+  color: #2d2d2d;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevents animations from showing outside bounds */
+  overflow: hidden;
 }
 
 .contactContainer {
@@ -15,16 +23,16 @@
 }
 
 .contactContainer h2 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 2.5rem; /* Refined size */
+  margin-bottom: 15px;
+  font-weight: 600; /* Consistent with other headings */
+  color: #2d2d2d;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin-bottom: 50px; /* Increased margin for spacing */
+  color: #6b6b6b; /* Consistent secondary text color */
 }
 
 .formGroup {
@@ -34,90 +42,98 @@
 
 .formGroup label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
-  color: #c0c0c0;
+  font-size: 0.8rem;
+  color: #555555;
+  /* Sophisticated typography details */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .formGroup input,
 .formGroup textarea {
   width: 100%;
   padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background-color: #1a1a1a;
-  color: #f0f0f0;
+  border-radius: 4px; /* A more subtle, clean radius */
+  border: 1px solid #dcd8d0; /* Light, architectural border */
+  background-color: transparent; /* Clean and integrated */
+  color: #2d2d2d;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: inherit; /* Ensures it uses the body font */
+  transition: border-color 0.3s;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  /* A simple, elegant focus state */
+  border-color: #2d2d2d; 
 }
 
+/* --- Button is identical to the main hero CTA --- */
 .submitButton {
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
+  background-color: transparent;
+  color: #2d2d2d;
+  border: 1px solid #2d2d2d;
+  border-radius: 50px;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
   display: inline-block;
   width: auto;
 }
 
 .submitButton:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+  background-color: #2d2d2d;
+  color: #f4f1ea;
+  transform: translateY(-3px);
 }
 
 .submitButton:disabled {
-  background-color: #555;
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #888;
   cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Feedback Messages --- */
+.successMessage,
+.errorMessage {
+  margin-top: 20px;
+  font-weight: 500;
 }
 
 .successMessage {
-  margin-top: 20px;
-  color: #28a745;
-  font-weight: bold;
+  /* A more muted, on-brand green */
+  color: #2E7D32; 
 }
 
 .errorMessage {
-  margin-top: 20px;
-  color: #dc3545;
-  font-weight: bold;
+  /* A more muted, on-brand red */
+  color: #C62828; 
 }
 
 /* --- Mobile Optimization --- */
 @media (max-width: 768px) {
   .contactSection {
-    padding: 60px 15px; /* Reduced padding for smaller screens */
+    padding: 80px 15px;
   }
 
   .contactContainer h2 {
-    font-size: 2.25rem; /* Smaller heading for mobile */
+    font-size: 2rem;
   }
 
   .subtitle {
-    font-size: 1rem; /* Slightly smaller subtitle */
-    margin-bottom: 30px;
-  }
-
-  .formGroup input,
-  .formGroup textarea {
-    padding: 12px; /* Slightly smaller padding inside form fields */
-    font-size: 0.95rem;
+    font-size: 1rem;
+    margin-bottom: 40px;
   }
 
   .submitButton {
-    width: 100%; /* Make button full-width for easier tapping */
-    padding: 15px;
-    font-size: 1rem;
+    width: 100%; /* Full-width for easier tapping on mobile */
+    padding: 1rem;
   }
 }

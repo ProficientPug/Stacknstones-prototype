@@ -1,8 +1,18 @@
+/*
+ * Minimalist Architectural Theme for Milestones
+ * - Uses a subtle, complementary background for elegant separation.
+ * - Typography and colors are consistent with the main homepage theme.
+ * - Increased vertical spacing enhances the clean, premium feel.
+ */
+
 .milestonesSection {
-  padding: 80px 20px;
-  background-color: #111; /* A slightly off-black for contrast */
-  color: #f0f0f0;
+  /* A slightly darker, warm gray to distinguish from the hero section */
+  background-color: #e9e5dc; 
+  padding: 120px 20px; /* Increased padding for more breathing room */
   text-align: center;
+  /* Adds a fine, architectural line to frame the section */
+  border-top: 1px solid #dcd8d0;
+  border-bottom: 1px solid #dcd8d0;
 }
 
 .milestonesContainer {
@@ -21,31 +31,35 @@
 }
 
 .milestoneValue {
-  font-size: 4rem;
-  font-weight: 700;
-  color: #6A7889; 
+  font-size: clamp(3rem, 10vw, 4.5rem); /* Responsive font size */
+  font-weight: 600; /* Slightly refined from 700 */
+  color: #2d2d2d; /* Aligns with the primary headline color */
   margin: 0 0 10px 0;
+  line-height: 1.1;
 }
 
 .milestoneLabel {
-  font-size: 1.2rem;
-  color: #a0a0a0;
+  font-size: 1.1rem; /* Slightly reduced for better hierarchy */
+  font-weight: 400;
+  color: #6b6b6b; /* A soft, secondary text color from the theme */
   margin: 0;
+  text-transform: uppercase; /* Adds a touch of design sophistication */
+  letter-spacing: 1px;
 }
 
 /* --- Mobile Optimization --- */
 @media (max-width: 768px) {
   .milestonesSection {
-    padding: 60px 20px; /* Reduced vertical padding */
+    padding: 80px 20px; /* Adjusted padding for smaller screens */
   }
 
   .milestonesContainer {
-    flex-direction: column; /* Stack items vertically on mobile */
-    gap: 50px; /* Adjust gap for the new vertical layout */
+    flex-direction: column; /* Stacks items vertically on mobile */
+    gap: 50px; /* Adjust gap for the vertical layout */
   }
   
   .milestoneValue {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Ensure it's still impactful on mobile */
   }
 
   .milestoneLabel {

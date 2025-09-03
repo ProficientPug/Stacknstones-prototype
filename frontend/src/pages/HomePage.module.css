@@ -1,15 +1,14 @@
-/* src/pages/HomePage.module.css */
 
+
+/* --- Page & Font Setup --- */
 .pageWrapper {
-  background-color: #0a0a0a;
-  color: #ededed;
-
-  /* --- THE FIX: Use CSS Grid for layout --- */
+  /* Switched to a warm, off-white for an elegant, gallery-like feel */
+  background-color: #f4f1ea; 
+  /* Changed default text to a soft, dark charcoal for better readability */
+  color: #2d2d2d; 
   display: grid;
-  grid-template-rows: auto; /* Each child will create its own row */
+  grid-template-rows: auto;
 }
-
-
 
 .textSectionContainer {
   min-height: 100vh;
@@ -19,39 +18,45 @@
   text-align: center;
   padding: 2rem;
   overflow: hidden;
-  position: relative; /* This is important! */
-  /* Remove z-index */
+  position: relative;
 }
-/* --- ALL OTHER STYLES BELOW REMAIN THE SAME --- */
 
+/* --- Hero Content & Typography --- */
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  position: relative; /* Ensure it creates a stacking context */
-  z-index: 2; /* Lift above the lines */
+  gap: 2rem; /* Increased gap for more breathing room */
+  max-width: 900px; /* Slightly wider for a more spacious feel */
+  position: relative;
+  z-index: 2;
+}
+
+.heroPhrase {
+  font-size: 1.75rem;
+  font-weight: 400;
+  /* A slightly lighter color for hierarchy */
+  color: #6b6b6b; 
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 .heroHeadline {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
+  /* Assumes a modern serif font like 'Playfair Display' or 'Lora' is loaded */
+  /* font-family: 'YourSerifFont', serif; */
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 500; /* Softer weight for elegance */
   letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #ffffff, #a0a0a0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1.2;
-  z-index:2;
+  line-height: 1.1;
+  /* Removed text gradient for a clean, timeless look */
+  color: #2d2d2d;
 }
 
 .heroTagline {
   font-size: clamp(1rem, 4vw, 1.25rem);
   font-weight: 300;
-  color: #b3b3b3;
+  color: #555555; /* Adjusted for the light background */
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 0.5rem;
 }
 
 .wordWrapper {
@@ -60,18 +65,24 @@
   white-space: nowrap;
 }
 
+/* --- Call-to-Action Button --- */
 .heroCtaButton {
-  background-color: #ffffff;
-  color: #0a0a0a;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
+  /* Changed to a refined 'ghost button' style */
+  background-color: transparent;
+  color: #2d2d2d;
+  border: 1px solid #2d2d2d;
+  border-radius: 50px; /* Pill shape for a modern touch */
+  padding: 0.85rem 2.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  /* Smooth transition for background, color, and transform */
+  transition: all 0.3s ease;
 }
 
 .heroCtaButton:hover {
-  background-color: #dcdcdc;
+  /* Inverts colors on hover for a satisfying interaction */
+  background-color: #2d2d2d;
+  color: #f4f1ea;
+  transform: translateY(-3px); /* Subtle lift effect */
 }

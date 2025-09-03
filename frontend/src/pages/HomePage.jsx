@@ -47,6 +47,8 @@ function HomePage() {
   const navigate = useNavigate();
   const handleNavigateToProjects = () => navigate('/projects');
 
+  const phrase1 = "Tropical Modernism & Heritage"; // New phrase
+  const phrase2 = "Timelessness, Reimagined."; // New phrase
   const headline = "Building Tomorrow's Visions.";
   const tagline = 'Expert constructions for residential and commercial projects.';
 
@@ -81,6 +83,53 @@ function HomePage() {
                 </motion.span>
               ))}
             </motion.h1>
+            <motion.h2
+              className={styles.heroPhrase} // Use a new style for these phrases
+              variants={lineVariants}
+              aria-label={phrase1}
+            >
+              {phrase1.split(' ').map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={itemVariants}
+                  className={styles.wordWrapper}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
+
+            <motion.h2
+              className={styles.heroPhrase}
+              variants={lineVariants}
+              aria-label={phrase2}
+            >
+              {phrase2.split(' ').map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={itemVariants}
+                  className={styles.wordWrapper}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
+            <motion.h1
+              className={styles.heroHeadline}
+              variants={lineVariants}
+              aria-label={headline}
+            >
+              {headline.split(' ').map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={itemVariants}
+                  className={styles.wordWrapper}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
+
             <motion.p
               className={styles.heroTagline}
               variants={lineVariants}
@@ -96,6 +145,7 @@ function HomePage() {
                 </motion.span>
               ))}
             </motion.p>
+            
             <motion.div variants={itemVariants}>
               <motion.button
                 className={styles.heroCtaButton}
@@ -111,7 +161,7 @@ function HomePage() {
         </div>
       </div>
       {/* --- MILESTONES SECTION --- */}
-      <Milestones /> {/* 2. Add the component here */}
+      <Milestones />
       
       {/* --- CONTACT FORM SECTION --- */}
       <ContactForm />

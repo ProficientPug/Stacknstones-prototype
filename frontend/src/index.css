@@ -9,7 +9,7 @@
   --white: #FCFCFC;
   --slate-grey: #222223;
   --davys-grey: #B2AAB5; /* Corrected from 5T5F60, as 'T' is not a valid hex character */
-  --sage-grey: #8AA5A1;
+  --sage-grey: #dfdfdf;
 }
 
 body {

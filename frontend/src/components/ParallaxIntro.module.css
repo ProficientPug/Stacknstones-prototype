@@ -20,20 +20,20 @@
   position: absolute;
   font-size: clamp(3rem, 10vw, 6rem); /* Much bigger */
   font-weight: 500;
-  color: #2d2d2d40; /* Lighter, semi-transparent color */
+  color: #16161679; 
   line-height: 1.1;
   max-width: 50%;
 }
 
 .phraseTopLeft {
-  top: 25%;
-  left: 25%;
+  top: 5%;
+  left: 55%;
   text-align: left;
 }
 
 .phraseBottomRight {
-  bottom: 25%;
-  right: 25%;
+  bottom: 5%;
+  right: 5%;
   text-align: right;
 }
 

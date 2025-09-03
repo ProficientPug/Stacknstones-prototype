@@ -3,11 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
+import AnimatedCounter from './AnimatedCounter'; // Make sure this path is correct
 import styles from './ParallaxIntro.module.css';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
+
+// Milestone data is now inside this component
+const milestones = [
+  { value: 35, label: 'Years of Experience' },
+  { value: 120, label: 'Projects Completed' },
+  { value: 100, label: 'Happy Customers' },
+];
 
 function ParallaxIntro() {
   const navigate = useNavigate();
@@ -18,44 +24,73 @@ function ParallaxIntro() {
       scrollTrigger: {
         trigger: `.${styles.parallaxContainer}`,
         start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
+        // The animation will now span a scroll distance of 200% of the viewport height
+        end: '+=200%', 
+        scrub: 1.5, // Slightly slower scrub for a smoother feel
         pin: `.${styles.stickyContainer}`,
       },
     });
 
-    tl.fromTo(
-      `.${styles.phrase}`,
-      { y: 0, opacity: 1 },
-      { y: -150, opacity: 0, stagger: 0.2 }
-    );
+    // 1. Animate the large phrases out
+    tl.to(`.${styles.phrase}`, {
+      opacity: 0,
+      scale: 0.8,
+      duration: 1,
+    });
 
-    tl.fromTo(
-      `.${styles.headlineSection}`,
-      { y: 150, opacity: 0 },
-      { y: 0, opacity: 1 },
-      "<25%"
-    );
+    // 2. Animate the milestones in, floating from different directions
+    tl.from(`.${styles.milestoneItem}`, {
+      opacity: 0,
+      y: (index) => (index % 2 === 0 ? 100 : -100), // Alternate starting position
+      x: (index) => (index === 1 ? 0 : (index === 0 ? -100 : 100)),
+      scale: 0.5,
+      stagger: 0.3,
+      duration: 1,
+    }, "-=0.5"); // Overlap with previous animation
+
+    // 3. Hold the milestones for a moment, then animate them out
+    tl.to(`.${styles.milestoneItem}`, {
+      opacity: 0,
+      scale: 1.5,
+      filter: 'blur(10px)',
+      stagger: 0.2,
+      duration: 1,
+    }, "+=1.5"); // Hold for 1.5 seconds of scroll
+
+    // 4. Animate the final headline section in
+    tl.from(`.${styles.headlineSection}`, {
+      opacity: 0,
+      scale: 0.8,
+      duration: 1,
+    }, "-=0.5"); // Overlap for a smooth transition
+
   }, []);
 
   return (
     <div className={styles.parallaxContainer}>
       <div className={styles.stickyContainer}>
-        
-        {/* --- THE FIX IS HERE --- */}
-        {/* This single container is now centered, and the h2 tags inside stack normally. */}
-        <div className={styles.textCenter}>
-          <h2 className={styles.phrase}>
-            Tropical Modernism & Heritage
-          </h2>
-          <h2 className={styles.phrase}>
-            Timelessness, Reimagined.
-          </h2>
-        </div>
-        {/* --- END OF FIX --- */}
+        {/* --- Phrases (Repositioned & Styled via CSS) --- */}
+        <h2 className={`${styles.phrase} ${styles.phraseTopLeft}`}>
+          Tropical Modernism & Heritage
+        </h2>
+        <h2 className={`${styles.phrase} ${styles.phraseBottomRight}`}>
+          Timelessness, Reimagined.
+        </h2>
 
-        {/* This headline section is a separate absolutely positioned element, which is correct. */}
-        <div className={`${styles.textCenter} ${styles.headlineSection}`}>
+        {/* --- Milestones (Now part of this component) --- */}
+        <div className={styles.milestonesGrid}>
+          {milestones.map((milestone, index) => (
+            <div key={index} className={`${styles.milestoneItem} ${styles[`milestonePos${index + 1}`]}`}>
+              <h3 className={styles.milestoneValue}>
+                <AnimatedCounter value={milestone.value} />+
+              </h3>
+              <p className={styles.milestoneLabel}>{milestone.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* --- Final Headline --- */}
+        <div className={styles.headlineSection}>
           <h1 className={styles.heroHeadline}>Building Tomorrow's Visions.</h1>
           <p className={styles.heroTagline}>
             Expert constructions for residential and commercial projects.

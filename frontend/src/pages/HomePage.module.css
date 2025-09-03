@@ -85,4 +85,29 @@
   background-color: #2d2d2d;
   color: #f4f1ea;
   transform: translateY(-3px); /* Subtle lift effect */
+
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 768px) {
+  .textSectionContainer {
+    padding: 1.5rem; /* Reduce side padding on mobile */
+  }
+
+  .heroContent {
+    gap: 1.5rem; /* Tighten the vertical spacing between elements */
+  }
+
+  .heroPhrase {
+    font-size: 1.25rem; /* Make the secondary phrases smaller */
+  }
+
+  .heroHeadline {
+    /* Adjust the clamp to have a smaller max size on mobile */
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .heroCtaButton {
+    padding: 0.75rem 2rem; /* Slightly smaller button padding */
+  }
 }

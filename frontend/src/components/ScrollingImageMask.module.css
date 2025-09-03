@@ -30,3 +30,32 @@
   object-fit: cover;
   object-position: center;
 }
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+  /* The section can have a natural height since the pinning animation is disabled */
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+    background-color: #0a0a0a; /* Add a background for the section */
+  }
+
+  /* Switch to a simple grid to stack the images vertically */
+  .images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    position: static; /* Override desktop positioning */
+    height: auto;
+  }
+
+  /* Unset the absolute positioning and mask for a simpler layout */
+  .maskImg {
+    position: static;
+    mask-image: none;
+    -webkit-mask-image: none;
+    border-radius: 12px; /* Add a nice border radius */
+    overflow: hidden; /* Ensures the image respects the border radius */
+    aspect-ratio: 4 / 3; /* Give images a consistent shape */
+  }
+}

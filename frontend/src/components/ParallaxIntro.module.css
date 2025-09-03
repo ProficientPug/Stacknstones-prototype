@@ -48,7 +48,7 @@
   position: absolute;
   text-align: center;
   /* Start hidden, GSAP will make them visible */
-  opacity: 0; 
+
 }
 
 /* Positions for each milestone to create the floating effect */
@@ -86,10 +86,7 @@
   opacity: 0; 
 }
 
-/* --- Re-using your elegant homepage styles --- */
-.heroHeadline, .heroTagline, .heroCtaButton {
-  /* These styles remain the same as before */
-}
+
 
 .heroHeadline {
   font-size: clamp(3rem, 8vw, 5rem);

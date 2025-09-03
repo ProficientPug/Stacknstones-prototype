@@ -1,55 +1,50 @@
-/* --- Main Footer Container --- */
+/* Main footer container is now the dark part */
 .footer {
   position: relative;
-  /* This background should match the section ABOVE the footer */
-  background-color: #f4f1ea;
-  margin-top: 6rem; /* Ensures space above the wave */
-  padding-top: 100px; /* Space for the wave to exist */
+  background-color: #2d2d2d; /* The dark footer background */
+  color: #f4f1ea;
+  margin-top: 100px; /* Creates space for the wave above */
 }
 
+/* This container holds the SVG and places it on top of the footer */
 .waveContainer {
   position: absolute;
-  top: 0;
+  bottom: 100%; /* Sits directly on top of the footer */
   left: 0;
   width: 100%;
-  height: 100px; /* Height of the wave SVG */
+  height: 100px;
   overflow: hidden;
 }
 
+/* The SVG wave itself */
+.wave {
+  width: 100%;
+  height: 100%;
+}
+
+/* The path inside the SVG is what gets filled and animated */
+.wave path {
+  /* The fill should match the light background of the section ABOVE the footer */
+  fill: #f4f1ea; 
+  animation: wave-animation 8s linear infinite;
+}
+
 .footerContent {
-  /* This is the dark background of your footer */
-  background-color: #2d2d2d; 
-  color: #f4f1ea; /* Light text for contrast */
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
 }
 
-/* --- SVG and Animation Styles --- */
-.gooeff {
-  filter: url(#goo);
-}
-
-.wave {
-  /* This fill color creates the wave shape */
-  fill: #2d2d2d; 
-  animation: wave 3s linear infinite;
-}
-
-.wave2 {
-  animation-duration: 5s;
-  animation-direction: reverse;
-  opacity: 0.6;
-}
-
-.wave3 {
-  animation-duration: 7s;
-  opacity: 0.3;
-}
-
-/* --- Keyframe Animations --- */
-@keyframes wave {
-  to {
-    transform: translateX(-50%);
+/* --- Keyframe Animation --- */
+/* This animation moves the wave horizontally to create the effect */
+@keyframes wave-animation {
+  0% {
+    transform: translateX(-25%) scaleX(1.5);
+  }
+  50% {
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    transform: translateX(-25%) scaleX(1.5);
   }
 }

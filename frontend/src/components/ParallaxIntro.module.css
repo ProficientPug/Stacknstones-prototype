@@ -124,23 +124,36 @@
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .phrase {
-    max-width: 80%;
+    max-width: 90%; /* Allow phrases to be wider on mobile */
+    font-size: 2.5rem; /* Slightly smaller font for mobile */
+    position: relative; /* Change from absolute to relative for normal stacking */
+    margin-bottom: 2rem; /* Add space between the stacked phrases */
   }
+
+  /* --- THIS IS THE KEY FIX --- */
+  /* Remove the shared rule and give each its own simple layout */
   .phraseTopLeft, .phraseBottomRight {
-    left: 10%;
-    right: 10%;
+    position: relative; /* Override absolute positioning */
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     text-align: center;
   }
-  .milestonePos1, .milestonePos2, .milestonePos3 {
-    position: relative;
-    top: auto; left: auto; right: auto; bottom: auto;
-    transform: none;
-    margin-bottom: 40px;
-  }
+
   .milestonesGrid {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative; /* Allow milestones to stack in the flow */
+  }
+  
+  .milestoneItem {
+    position: relative; /* Stack milestones normally */
+    top: auto; left: auto; right: auto; bottom: auto;
+    transform: none;
+    margin-bottom: 40px;
+    opacity: 1; /* Ensure they are visible by default on mobile */
   }
 }

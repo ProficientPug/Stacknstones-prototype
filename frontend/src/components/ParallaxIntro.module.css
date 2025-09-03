@@ -1,0 +1,76 @@
+/* src/components/ParallaxIntro.module.css */
+
+.parallaxContainer {
+  /* This height dictates how long you scroll to complete the animation */
+  height: 200vh; 
+  position: relative;
+  /* Ensure it matches your site's theme */
+  background-color: #f4f1ea; 
+}
+
+.stickyContainer {
+  /* This element will be pinned to the screen during the scroll */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textCenter {
+  position: absolute; /* Allows elements to stack on top of each other */
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+/* --- Re-using your elegant homepage styles --- */
+.phrase {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  letter-spacing: 0.5px;
+}
+
+.headlineSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.heroHeadline {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #2d2d2d;
+}
+
+.heroTagline {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-weight: 300;
+  color: #555555;
+  max-width: 600px;
+}
+
+.heroCtaButton {
+  background-color: transparent;
+  color: #2d2d2d;
+  border: 1px solid #2d2d2d;
+  border-radius: 50px;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.heroCtaButton:hover {
+  background-color: #2d2d2d;
+  color: #f4f1ea;
+  transform: translateY(-3px);
+}

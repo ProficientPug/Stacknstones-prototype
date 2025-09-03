@@ -26,14 +26,14 @@
 }
 
 .phraseTopLeft {
-  top: 15%;
-  left: 10%;
+  top: 25%;
+  left: 25%;
   text-align: left;
 }
 
 .phraseBottomRight {
-  bottom: 15%;
-  right: 10%;
+  bottom: 25%;
+  right: 25%;
   text-align: right;
 }
 

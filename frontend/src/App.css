@@ -40,37 +40,3 @@
 .read-the-docs {
   color: #201f1f;
 }
-
-@media (max-width: 768px) {
-  #projects h1 {
-    font-size: 2rem; /* Make the main title a bit smaller */
-  }
-
-  .project-card {
-    /* On mobile, cards behave like standard content blocks, not interactive squares */
-    aspect-ratio: unset; /* Let the card height be determined by its content */
-    background-color: #e9e5dc; /* Match the milestones section background */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Add a subtle shadow */
-  }
-
-  .project-card:hover {
-    /* Disable the pop-out effect on touch devices */
-    transform: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  }
-
-  .project-image {
-    height: 200px; /* Give the image a fixed height */
-  }
-
-  .project-info-overlay {
-    /* Change the overlay to a standard content block below the image */
-    position: static;
-    opacity: 1;
-    transform: none;
-    background-color: transparent;
-    color: #2d2d2d; /* Use the primary text color */
-    text-align: left; /* Align text to the left for better readability */
-    align-items: flex-start;
-  }
-}

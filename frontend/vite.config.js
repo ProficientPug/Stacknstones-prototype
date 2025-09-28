@@ -3,10 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Stacknstones-prototype/',
   plugins: [react()],
-  base: '/', 
-  // Add this server configuration
-  server: {
-    sourcemap: 'inline-source-map',
-  },
-});
+})

@@ -28,6 +28,7 @@ function Navbar() {
         <li><NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink></li>
         <li><NavLink to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavLink></li>
         <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
+        <li><NavLink to="/process" onClick={() => setMenuOpen(false)}>Process</NavLink></li>
       </ul>
     </nav>
   );

@@ -1,4 +1,6 @@
 import React from 'react';
+// Add this import statement for the router components
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Corrected import paths

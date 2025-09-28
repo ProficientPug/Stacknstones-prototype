@@ -32,6 +32,108 @@
       description: 'Power washing the deck to prepare it for a new coat of stain.',
       imageUrl: 'deck-powerwash.png',
     },
+    {
+      id: 4,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 5,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    },
+    {
+      id: 6,
+      title: 'Deck Staining Prep',
+      description: 'Power washing the deck to prepare it for a new coat of stain.',
+      imageUrl: 'deck-powerwash.png',
+    },
+    {
+      id: 7,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 8,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    },
+    {
+      id: 9,
+      title: 'Deck Staining Prep',
+      description: 'Power washing the deck to prepare it for a new coat of stain.',
+      imageUrl: 'deck-powerwash.png',
+    },
+    {
+      id: 10,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 11,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    },
+    {
+      id: 12,
+      title: 'Deck Staining Prep',
+      description: 'Power washing the deck to prepare it for a new coat of stain.',
+      imageUrl: 'deck-powerwash.png',
+    },
+    {
+      id: 13,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 14,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    },
+    {
+      id: 15,
+      title: 'Deck Staining Prep',
+      description: 'Power washing the deck to prepare it for a new coat of stain.',
+      imageUrl: 'deck-powerwash.png',
+    },
+    {
+      id: 16,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 17,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    },
+    {
+      id: 18,
+      title: 'Deck Staining Prep',
+      description: 'Power washing the deck to prepare it for a new coat of stain.',
+      imageUrl: 'deck-powerwash.png',
+    },
+    {
+      id: 19,
+      title: 'Kitchen Remodel: Day 1',
+      description: 'Demolition is underway! Clearing out the old cabinets and flooring.',
+      imageUrl: 'kitchen-demo.jpg',
+    },
+    {
+      id: 20,
+      title: 'Garden Project: Framing',
+      description: 'The new raised garden beds have been framed and are ready for soil.',
+      imageUrl: 'garden-beds.jpg',
+    }
   ];
 
   const tileColors = ['#00A3A3', '#E5A629', '#D95B3D', '#4B8BF5', '#9C3DD9'];

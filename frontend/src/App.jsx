@@ -1,28 +1,29 @@
-// src/App.jsx
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+// Corrected import paths
+import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
-import AboutPage from './pages/AboutPage';
-import ProcessPage from './pages/ProcessPage'; // Import the new ProcessPage
-import './App.css';
+import ProcessPage from './pages/ProcessPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
+    <Router basename="/Stacknstones-prototype">
       <div className="App">
-        <Navbar />
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about" element={<AboutPage />} />
             <Route path="/process" element={<ProcessPage />} />
           </Routes>
         </main>
         <Footer />
       </div>
+    </Router>
   );
 }
 

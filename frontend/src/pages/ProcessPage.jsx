@@ -24,8 +24,7 @@ import img17 from '../assets/process/img17.jpg';
 import img18 from '../assets/process/img18.jpg';
 import img19 from '../assets/process/img19.jpg';
 import img20 from '../assets/process/img20.jpg';
-import gardenBedsImg from '../assets/process/garden-beds.jpg';
-import deckPowerwashImg from '../assets/process/deck-powerwash.png';
+
 
 // Step 2: Use the imported image variables directly in your data array.
 const updatesData = [

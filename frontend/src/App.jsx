@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProcessPage from './pages/ProcessPage';
 import Footer from './components/Footer';
-import AboutPage from '/pages/AboutPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (

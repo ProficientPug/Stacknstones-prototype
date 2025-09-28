@@ -3,22 +3,24 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Corrected import paths
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProcessPage from './pages/ProcessPage';
 import Footer from './components/Footer';
+import AboutPage from '/pages/AboutPage';
 
 function App() {
   return (
     <Router basename="/Stacknstones-prototype">
       <div className="App">
-        <Header />
+        <Navbar />
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/process" element={<ProcessPage />} />
+            <Route path="/about" element={<AboutPage/>} />
           </Routes>
         </main>
         <Footer />

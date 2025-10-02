@@ -1,116 +1,90 @@
-#projects {
+.projectsPage {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
-#projects h1 {
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-/* The main tile style */
-.project-card {
-  position: relative; /* Crucial for positioning the overlay inside */
-  aspect-ratio: 1 / 1; /* Makes the tile a perfect square */
-  border-radius: 4px;
-  overflow: hidden; /* Hides parts of the overlay that might stick out */
-  color: var(--white);
-  text-decoration: none;
-  display: block;
-  /* The "slick animation" transition */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* The pop-out effect on hover */
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  z-index: 10; /* Ensures the hovered card is on top of others */
-}
-
-/* The project image fills the tile */
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.3s ease; /* Smooth transition for the dimming effect */
-}
-
-/* The text overlay that appears on hover */
-.project-info-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem;
-  
-  /* Centering the text inside the overlay */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-
-  /* Initially hidden */
-  opacity: 0;
-  transform: translateY(20px); /* Start slightly lower */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* When we hover the card, the overlay becomes visible */
-.project-card:hover .project-info-overlay {
-  opacity: 1;
-  transform: translateY(0); /* Move to its final position */
-}
-
-.project-info-overlay h3 {
-  margin: 0;
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--charcoal);
   margin-bottom: 0.5rem;
 }
 
-.project-info-overlay p {
-  font-size: 0.9rem;
-  line-height: 1.4;
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--neutral-text);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.projectCard {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  /* Add a subtle border for definition */
+  border: 1px solid var(--neutral-stone);
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  width: 100%;
+  /* Modern aspect ratio for images */
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectContent {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin: 0 0 0.75rem 0;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--neutral-text);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  #projects h1 {
-    font-size: 2rem; /* Make the main title a bit smaller */
+  .projectsPage {
+    padding: 3rem 1rem;
   }
-
-  .project-card {
-    /* On mobile, cards behave like standard content blocks, not interactive squares */
-    aspect-ratio: unset; /* Let the card height be determined by its content */
-    background-color: #e9e5dc; /* Match the milestones section background */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Add a subtle shadow */
+  .title {
+    font-size: 2.5rem;
   }
-
-  .project-card:hover {
-    /* Disable the pop-out effect on touch devices */
-    transform: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  }
-
-  .project-image {
-    height: 200px; /* Give the image a fixed height */
-  }
-
-  .project-info-overlay {
-    /* Change the overlay to a standard content block below the image */
-    position: static;
-    opacity: 1;
-    transform: none;
-    background-color: transparent;
-    color: #2d2d2d; /* Use the primary text color */
-    text-align: left; /* Align text to the left for better readability */
-    align-items: flex-start;
+  .projectGrid {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+    gap: 2rem;
   }
 }

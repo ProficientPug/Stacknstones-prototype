@@ -3,8 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './AboutPage.module.css';
 
-import dadImage from '../assets/team/dad.jpeg';
-import sonImage from '../assets/team/son.jpeg';
+import dadImage from '../assets/team/dad.jpg';
+import sonImage from '../assets/team/son.jpg';
 
 // 2. Define our animation variants
 const sectionVariants = {

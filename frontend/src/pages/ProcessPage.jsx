@@ -1,8 +1,7 @@
 import React from 'react';
-import './ProjectsPage.css';
+import './ProjectsPage.module.css';
 
-// Step 1: Import each image directly.
-// The build process will fail if any of these paths are wrong, which is a good thing!
+
 
 import img1 from '../assets/process/img1.jpg';
 import img2 from '../assets/process/img2.jpg';
@@ -26,7 +25,7 @@ import img19 from '../assets/process/img19.jpg';
 import img20 from '../assets/process/img20.jpg';
 
 
-// Step 2: Use the imported image variables directly in your data array.
+
 const updatesData = [
   {
     id: 1,
@@ -81,7 +80,7 @@ function UpdatesPage() {
               className="project-card"
               style={{ backgroundColor: tileColors[index % tileColors.length] }}
             >
-              {/* Step 3: The src attribute is now much simpler and safer */}
+              
               <img
                 src={update.imageUrl}
                 alt={update.title}

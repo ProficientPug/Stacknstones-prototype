@@ -1,5 +1,5 @@
 import React from 'react';
-import { projects } from '../data/projectsData'; 
+import { projects } from './projectsData.js'; 
 import styles from './ProjectsPage.module.css';
 
 // 1. Import the new helper function

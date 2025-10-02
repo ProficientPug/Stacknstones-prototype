@@ -1,6 +1,6 @@
 import React from 'react';
 // 1. Import the local data instead of fetching
-import { projects } from '../data/projectsData'; 
+import { projects } from './projectsData.js'; 
 import styles from './ProjectsPage.module.css';
 
 function ProjectsPage() {

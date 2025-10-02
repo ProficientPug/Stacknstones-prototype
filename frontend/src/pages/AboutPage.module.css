@@ -1,0 +1,83 @@
+.aboutPage {
+  background-color: #f8f7f4; /* A soft, warm off-white background */
+  padding: 5rem 2rem;
+  font-family: 'Poppins', sans-serif; /* A modern, clean font - add to your main CSS */
+}
+
+.contentWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* Styling for the text sections */
+.introSection,
+.missionSection {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.introSection h2,
+.missionSection h3,
+.storyText h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.introSection p,
+.missionSection p,
+.storyText p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Layout for the story sections with images */
+.storySection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.storyText,
+.storyImage {
+  flex: 1; /* Each takes up half the space */
+}
+
+/* Reverse the order for the second story section */
+.storySectionReversed {
+  flex-direction: row-reverse;
+}
+
+.storyImage img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 3rem 1rem;
+  }
+
+  .storySection {
+    flex-direction: column; /* Stack text and image vertically */
+    gap: 2rem;
+  }
+
+  /* On mobile, always have the image first, then the text */
+  .storySectionReversed {
+    flex-direction: column;
+  }
+
+  .introSection h2,
+  .missionSection h3,
+  .storyText h3 {
+    font-size: 1.8rem;
+  }
+}

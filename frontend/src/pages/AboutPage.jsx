@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './AboutPage.module.css'; // We'll use CSS Modules for clean styling
 
 // 1. Import the specific images directly
-import dadImage from '../assets/team/dad.jpeg';
-import sonImage from '../assets/team/son.jpeg';
+import dadImage from '../assets/team/dad.jpg';
+import sonImage from '../assets/team/son.jpg';
 
 function About() {
   return (

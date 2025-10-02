@@ -1,38 +1,93 @@
-/* --- Default Desktop Styles --- */
+/* In Navbar.module.css */
+
+/* --- CSS Variables for Easy Customization --- */
+:root {
+  --primary-color: #007bff; /* A nice, modern blue */
+  --text-color: #333;
+  --background-color: #FFFFFF;
+  --navbar-height: 80px;
+}
+
+/* --- Base Navbar Style (Transparent on Top) --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #FFFFFF; /* Example color */
-  border-bottom: 1px solid #ddd;
-  position: relative; /* Needed for positioning the mobile menu */
+  padding: 0 4rem; /* More horizontal padding */
+  height: var(--navbar-height);
+  background-color: transparent; /* Transparent by default */
+  position: fixed; /* Stick to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- Scrolled Navbar Style --- */
+.navbar.scrolled {
+  background-color: var(--background-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Softer shadow */
 }
 
 .navbarLogo img {
-  height: 80px;
+  height: 50px; /* A slightly smaller logo */
+  transition: height 0.3s ease;
 }
 
+/* --- Navigation Links --- */
 .navbarLinks {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  align-items: center; /* Vertically align items */
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
 }
 
 .navbarLinks a {
   text-decoration: none;
-  color: #333; /* Example color */
-  font-weight: 700;
-  transition: color 0.3s ease;
+  color: var(--text-color);
+  font-weight: 500; /* Lighter font weight */
+  position: relative;
+  padding-bottom: 5px;
 }
 
-.navbarLinks a:hover {
-  color: #007bff; /* Example color */
+/* Cool underline hover effect */
+.navbarLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-in-out;
 }
 
-/* Hide hamburger on desktop */
+.navbarLinks a:hover::after {
+  width: 100%;
+}
+
+/* --- The Modern "Contact" Button --- */
+.navContactButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px; /* Pill shape */
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.navContactButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* --- Animated Hamburger Menu --- */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -43,38 +98,54 @@
 .hamburger span {
   display: block;
   width: 25px;
-  height: 3px;
-  background-color: #333;
+  height: 2px; /* Thinner lines */
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Animate hamburger to an 'X' when open */
+.hamburger.open span:nth-of-type(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-of-type(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* --- Mobile Optimization --- */
-@media (max-width: 768px) {
-  /* Hide the links by default on mobile */
+@media (max-width: 992px) { /* Increased breakpoint for tablets */
+  .navbar {
+    padding: 0 2rem;
+  }
+  
   .navbarLinks {
     display: none;
     position: absolute;
-    top: 100%; /* Position it right below the navbar */
+    top: var(--navbar-height);
     right: 0;
-    background-color: white;
+    background-color: var(--background-color);
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 1.5rem;
   }
 
-  /* When the menu is open, make the links visible */
   .navbarLinks.open {
     display: flex;
   }
   
-  /* Show the hamburger icon on mobile */
   .hamburger {
     display: flex;
   }
 
-  /* Adjust logo size for mobile */
   .navbarLogo img {
-    height: 60px;
+    height: 45px;
   }
 }

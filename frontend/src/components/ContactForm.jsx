@@ -69,7 +69,7 @@ function ContactForm() {
   };
 
   return (
-    <div className={styles.contactSection}>
+    <div id = "contact-form" className={styles.contactSection}>
       <motion.div 
         className={styles.contactContainer}
         variants={formVariants}

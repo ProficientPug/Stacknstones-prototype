@@ -63,7 +63,7 @@ function ProjectsPage() {
           >
             <div className={styles.imageContainer}>
               <img
-                src={getImageUrl(project.imageUrl)}
+                src={getImageUrl('images',project.imageUrl)}
                 alt={project.title}
                 className={styles.projectImage}
               />

@@ -83,7 +83,7 @@
 }
 
 .navContactButton:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #02264d; /* Darker shade on hover */
   transform: translateY(-2px); /* Slight lift effect */
 }
 

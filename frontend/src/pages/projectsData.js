@@ -1,12 +1,12 @@
-import image1 from '../assets/projects/image1.jpg';
-import image2 from '../assets/projects/image2.jpg';
-import image3 from '../assets/projects/image3.jpg';
-import image4 from '../assets/projects/image4.jpg';
-import image5 from '../assets/projects/image5.jpg'; 
-import image6 from '../assets/projects/image6.jpg';
-import image7 from '../assets/projects/image7.jpg';
-import image9 from '../assets/projects/image9.jpg';
-import image10 from '../assets/projects/image10.jpg';
+import image1 from '../assets/images/image1.jpg';
+import image2 from '../assets/images/image2.jpg';
+import image3 from '../assets/images/image3.jpg';
+import image4 from '../assets/images/image4.jpg';
+import image5 from '../assets/images/image5.jpg'; 
+import image6 from '../assets/images/image6.jpg';
+import image7 from '../assets/images/image7.jpg';
+import image9 from '../assets/images/image9.jpg';
+import image10 from '../assets/images/image10.jpg';
 
 export const projects = [
   {

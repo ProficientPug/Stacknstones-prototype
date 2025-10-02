@@ -19,7 +19,7 @@ function ProjectsPage() {
           >
             <img
               // Assumes images are in the public/images/ folder
-              src={`/images/${project.imageUrl}`} 
+              src={`../images/${project.imageUrl}`} 
               alt={project.title}
               className={styles.projectImage}
             />

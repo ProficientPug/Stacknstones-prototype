@@ -1,25 +1,26 @@
 import React from 'react';
-// 1. Import the local data instead of fetching
-import { projects } from './projectsData.js'; 
+import { projects } from '../data/projectsData'; 
 import styles from './ProjectsPage.module.css';
+
+// 1. Import the new helper function
+import { getImageUrl } from '../utils/imageHelper';
 
 function ProjectsPage() {
   return (
     <section id="projects" className={styles.projectsSection}>
       <h1>Our Projects</h1>
       <div className={styles.projectGrid}>
-        {/* 2. Map over the imported array directly */}
         {projects.map((project) => (
           <a
-            key={project._id.$oid} // Use the unique ID from your data for the key
+            key={project._id.$oid}
             href={project.projectLink}
             className={styles.projectCard}
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* 2. Use the function to get the correct, processed image URL */}
             <img
-              // Assumes images are in the public/images/ folder
-              src={`../images/${project.imageUrl}`} 
+              src={getImageUrl(project.imageUrl)} 
               alt={project.title}
               className={styles.projectImage}
             />

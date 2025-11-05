@@ -5,13 +5,8 @@ import { processUpdates } from '../data/processData';
 import { getImageUrl } from '../utils/imageHelper';
 import styles from './ProcessPage.module.css';
 
-// --- Animation Variants ---
-
-// This grid variant is no longer needed
-// const gridContainerVariants = { ... };
-
-// We only need the card's variants
-const cardVariants = {
+// The variants are still useful for the image animation
+const imageVariants = {
   hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
@@ -38,33 +33,34 @@ function ProcessPage() {
         </p>
       </div>
 
-  
       <div
         className={styles.processGrid}
       >
         {processUpdates.map((update) => (
-         
+          
+          // --- THIS IS THE MODIFIED PART ---
+          // We are no longer rendering a "card".
+          // This is now an animated container that *only* holds the image.
+          // It re-uses your "imageContainer" style to keep the aspect ratio.
+
           <motion.div
             key={update.id}
-            className={styles.processCard}
-            variants={cardVariants}
+            className={styles.imageContainer} // Use this class for aspect-ratio
+            variants={imageVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }} // Triggers when 30% of the card is visible
+            viewport={{ once: true, amount: 0.3 }}
             whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
           >
-            <div className={styles.imageContainer}>
-              <img
-                src={getImageUrl("process", update.imageUrl)}
-                alt={update.title}
-                className={styles.processImage}
-              />
-            </div>
-            <div className={styles.processContent}>
-              <h3 className={styles.processTitle}>{update.title}</h3>
-              <p className={styles.processDescription}>{update.description}</p>
-            </div>
+            <img
+              src={getImageUrl("process", update.imageUrl)}
+              // We still use the title for the 'alt' tag for accessibility
+              alt={update.title} 
+              className={styles.processImage}
+            />
+            {/* The entire processContent div has been removed */}
           </motion.div>
+
         ))}
       </div>
     </motion.section>

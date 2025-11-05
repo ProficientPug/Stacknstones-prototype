@@ -1,5 +1,5 @@
-export const getImageUrl = (name) => {
-  // This special syntax tells Vite to find the asset at build time.
-  // It correctly resolves the path relative to this file.
-  return new URL(`../assets/images/${name}`, import.meta.url).href;
+// The function now accepts a 'folder' and a 'name'
+export const getImageUrl = (folder, name) => {
+  // We use the 'folder' variable to build the dynamic path
+  return new URL(`../assets/${folder}/${name}`, import.meta.url).href;
 };

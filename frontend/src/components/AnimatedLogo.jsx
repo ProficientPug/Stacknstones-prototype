@@ -1,13 +1,11 @@
-import React from 'react';
+
 import './AnimatedLogo.css'; // Make sure this is the correct path
 
 const AnimatedLogo = () => {
   return (
     <div className="animated-logo-container">
       
-      {
-
-<svg
+   <svg
    version="1.1"
    id="svg1"
    width="682.66669"
@@ -164,10 +162,11 @@ const AnimatedLogo = () => {
      inkscape:label="Shape 1"
      style="display:none" />
 </svg>
-}
 
     </div>
   );
 };
+
+
 
 export default AnimatedLogo;

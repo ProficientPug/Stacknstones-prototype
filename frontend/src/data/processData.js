@@ -16,13 +16,13 @@ export const processUpdates = [
     id: 3,
     title: 'Garden Project: Framing',
     description: 'The new raised garden beds have been framed and are ready for soil.',
-    imageUrl: 'img3jpg',
+    imageUrl: 'img3.jpg',
   },
     {
     id: 4,
     title: 'Garden Project: Framing',
     description: 'The new raised garden beds have been framed and are ready for soil.',
-    imageUrl: 'img4pg',
+    imageUrl: 'img4.jpg',
   },
     {
     id: 5,

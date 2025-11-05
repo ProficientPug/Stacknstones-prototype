@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HomePage.module.css';
 
 // Import all the necessary page sections
-import ScrollingImageMask from '../components/ScrollingImageMask';
+import AnimatedLogo from '../components/AnimatedLogo';
 import ParallaxIntro from '../components/ParallaxIntro'; // <-- The new parallax component
 import ContactForm from '../components/ContactForm';
 
@@ -14,8 +14,8 @@ import ContactForm from '../components/ContactForm';
 function HomePage() {
   return (
     <div className={styles.pageWrapper}>
-      {/* Section 1: The scrolling image hero */}
-      <ScrollingImageMask />
+      
+      <AnimatedLogo />
       
       <ParallaxIntro />
       

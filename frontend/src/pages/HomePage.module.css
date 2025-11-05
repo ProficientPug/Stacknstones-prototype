@@ -92,10 +92,15 @@
 @media (max-width: 768px) {
   .textSectionContainer {
     padding: 1.5rem; /* Reduce side padding on mobile */
+    flex-direction: column; /* <-- THIS IS THE FIX */
+    /* You may also want to add a gap for spacing */
+    gap: 2rem; 
   }
 
   .heroContent {
     gap: 1.5rem; /* Tighten the vertical spacing between elements */
+    /* Ensure text aligns nicely when stacked */
+    text-align: center; 
   }
 
   .heroPhrase {

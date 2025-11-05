@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // Import our new clean data and the existing helper function
 import { processUpdates } from '../data/processData';
 import { getImageUrl } from '../utils/imageHelper'; // Reusing the same helper!
-import styles from './ProcessPage.module.css'; // A new CSS file for this page
+import styles from './ProcessPage.modules.css'; // A new CSS file for this page
 
 // --- Animation Variants (Identical to ProjectsPage for consistency) ---
 const gridContainerVariants = {

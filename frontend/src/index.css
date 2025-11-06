@@ -85,4 +85,14 @@ screens LARGER than 768px)
     overflow-y: auto;
     height: 100vh;
   }
+  .sidebar {
+  display: block; /* Show the sidebar */
+  
+  /* Re-create the look from your screenshot */
+  background-color: var(--warm-parchment); /* Use your variable */
+  border-right: 1px solid var(--neutral-stone); /* Use your variable */
+  
+  /* This ensures sidebar content scrolls if it's too tall */
+  overflow-y: auto; 
+}
 }

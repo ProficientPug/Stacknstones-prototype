@@ -4,7 +4,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedCounter from './AnimatedCounter'; 
-import styles from './ParallaxIntro.module.css';
+// 2. Import the CSS file you just sent
+import styles from './ParallaxIntro.module.css'; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,24 +19,21 @@ function ParallaxIntro() {
   const navigate = useNavigate();
   const handleNavigateToProjects = () => navigate('/projects');
   
-  // 2. Create a ref for the main container
+  // 3. Create a ref for the main container
   const container = useRef(null); 
 
-  // 3. Pass the scope to useGSAP
+  // 4. Pass the scope to useGSAP
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        // We can use the ref here for the trigger, which is safer
         trigger: container.current, 
         start: 'top top',
         end: '+=200%', 
         scrub: 1.5, 
-        // And we can use a simple class for the pin
-        pin: '.sticky-container', 
+        pin: '.sticky-container', // 5. Use simple classes for GSAP
       },
     });
 
-    // 4. Use simple, non-mangled class names as selectors
     tl.to('.phrase', {
       opacity: 0,
       scale: 0.8,
@@ -65,15 +63,14 @@ function ParallaxIntro() {
       duration: 1,
     }, "-=0.5"); 
 
-  }, { scope: container }); // <-- 3. Pass scope here
+  }, { scope: container }); // <-- 4. Pass scope here
 
   return (
-    // 5. Attach the ref to the main container
+    // 6. Attach the ref to the main container
     <div className={styles.parallaxContainer} ref={container}>
-      {/* 6. Add the simple class 'sticky-container' for GSAP to find */}
+      {/* 7. Add the simple classes alongside the CSS Module classes */}
       <div className={`${styles.stickyContainer} sticky-container`}>
         
-        {/* 7. Add the simple class 'phrase' */}
         <h2 className={`${styles.phrase} ${styles.phraseTopLeft} phrase`}>
           Tropical Modernism & Heritage
         </h2>
@@ -83,7 +80,6 @@ function ParallaxIntro() {
 
         <div className={styles.milestonesGrid}>
           {milestones.map((milestone, index) => (
-            // 8. Add the simple class 'milestone-item'
             <div key={index} className={`${styles.milestoneItem} ${styles[`milestonePos${index + 1}`]} milestone-item`}>
               <h3 className={styles.milestoneValue}>
                 <AnimatedCounter value={milestone.value} />+
@@ -93,7 +89,6 @@ function ParallaxIntro() {
           ))}
         </div>
 
-        {/* 9. Add the simple class 'headline-section' */}
         <div className={`${styles.headlineSection} headline-section`}>
           <h1 className={styles.heroHeadline}>Building Tomorrow's Visions.</h1>
           <p className={styles.heroTagline}>

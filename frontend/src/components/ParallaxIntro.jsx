@@ -71,11 +71,12 @@ function ParallaxIntro() {
       {/* 7. Add the simple classes alongside the CSS Module classes */}
       <div className={`${styles.stickyContainer} sticky-container`}>
         
+        {/* --- TEXT SWAPPED --- */}
         <h2 className={`${styles.phrase} ${styles.phraseTopLeft} phrase`}>
-          Tropical Modernism & Heritage
+          Building Tomorrow's Visions.
         </h2>
         <h2 className={`${styles.phrase} ${styles.phraseBottomRight} phrase`}>
-          Timelessness, Reimagined.
+          Expert constructions for residential and commercial projects.
         </h2>
 
         <div className={styles.milestonesGrid}>
@@ -89,10 +90,11 @@ function ParallaxIntro() {
           ))}
         </div>
 
+        {/* --- TEXT SWAPPED --- */}
         <div className={`${styles.headlineSection} headline-section`}>
-          <h1 className={styles.heroHeadline}>Building Tomorrow's Visions.</h1>
+          <h1 className={styles.heroHeadline}>Tropical Modernism & Heritage</h1>
           <p className={styles.heroTagline}>
-            Expert constructions for residential and commercial projects.
+            Timelessness, Reimagined.
           </p>
           <button
             className={styles.heroCtaButton}

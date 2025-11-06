@@ -40,3 +40,27 @@
 .read-the-docs {
   color: #201f1f;
 }
+/* --- MAIN MOBILE LAYOUT FIX --- */
+/* Add this to your top-level CSS file (e.g., App.module.css) */
+
+@media (max-width: 768px) {
+  
+  /* Target your MAIN layout container 
+    (Replace '.appContainer' with your class)
+  */
+  .appContainer {
+    /* If your desktop layout is Grid */
+    grid-template-columns: 1fr; /* Stack into one column */
+
+    /* If your desktop layout is Flex */
+    flex-direction: column;
+  }
+
+  /* Target your SIDEBAR component 
+    (Replace '.sidebar' with your class)
+  */
+  .sidebar {
+    /* Hide the desktop sidebar on mobile */
+    display: none;
+  }
+}

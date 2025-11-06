@@ -5,6 +5,7 @@
   /* Changed default text to a soft, dark charcoal for better readability */
   color: #2d2d2d; 
   display: grid;
+  padding: 2rem;
   grid-template-rows: auto;
 }
 

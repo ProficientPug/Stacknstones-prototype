@@ -1,98 +1,28 @@
-/* 1. Import the Lato font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-
-/* 2. Define your updated color palette as CSS variables */
 :root {
-  /* Primary Palette (The Foundation) */
-  --white: #FCFCFC;           /* Main page background */
-  --charcoal: #2d2d2d;         /* Primary text color */
-  --warm-parchment: #f4f1ea;   /* For text on dark backgrounds & light UI elements */
-
-  /* Accent Palette (The Personality) */
-  --accent-terracotta: #B85C38; /* For main buttons and key links */
-  --accent-olive: #5B642C;      /* For secondary highlights or icons */
-  --accent-slate: #6A7889;      /* For borders or cool-toned elements */
-
-  /* Neutral Tones (The Support) */
-  --neutral-stone: #e9e5dc;    /* For secondary backgrounds like milestones */
-  --neutral-text: #6b6b6b;      /* For subtitles and secondary text */
+  --white: #FCFCFC;
+  --charcoal: #2d2d2d;
+  /* ...all your other variables... */
 }
-
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background-color: var(--white); /* Sets the background to white */
-  color: var(--charcoal);       /* Sets the default text to dark charcoal */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  color: var(--charcoal);
+  /* ...etc... */
 }
-
 * {
   box-sizing: border-box;
 }
 .appContainer {
   display: grid;
-  grid-template-columns: 1fr; /* 1-column layout */
+  grid-template-columns: 1fr; /* 1-column layout for ALL screens */
   width: 100%;
 }
-
-/* Hide the desktop sidebar by default.
-  Your mobile hamburger menu (if you have one)
-  would be a separate component.
-*/
 .sidebar {
-  display: none; 
+  display: none; /* Sidebar is always hidden */
 }
-
-/* Your main content area. It will automatically
-  take up 100% of the width because its
-  parent is a single-column grid.
-*/
 .mainContent {
   width: 100%;
   padding: 0; 
-}
-
-
-/*
-========================================
-DESKTOP OVERRIDES
-(This "min-width" query only applies to
-screens LARGER than 768px)
-========================================
-*/
-
-@media (min-width: 769px) {
-
-  /* On desktop, we re-define the grid to be
-    two columns: one for the sidebar, one for the content.
-  */
-  .appContainer {
-    /* Example: 240px sidebar, 1fr for the rest */
-    grid-template-columns: 240px 1fr; 
-    
-    /* Make the layout fill the screen height */
-    height: 100vh; 
-  }
-
-  /* We bring the sidebar back on desktop.
-  */
-  
-  /* This ensures your main content (Parallax, Contact, etc.)
-    scrolls independently of the sidebar.
-  */
-  .mainContent {
-    overflow-y: auto;
-    height: 100vh;
-  }
-  .sidebar {
-  display: block; /* Show the sidebar */
-  
-  /* Re-create the look from your screenshot */
-  background-color: var(--warm-parchment); /* Use your variable */
-  border-right: 1px solid var(--neutral-stone); /* Use your variable */
-  
-  /* This ensures sidebar content scrolls if it's too tall */
-  overflow-y: auto; 
-}
 }

@@ -6,6 +6,8 @@ import AnimatedLogo from '../components/AnimatedLogo';
 import ParallaxIntro from '../components/ParallaxIntro'; // <-- The new parallax component
 import ContactForm from '../components/ContactForm';
 
+import milestones from '../components/Milestones'; // <-- Milestones component
+
 /**
  * The HomePage component now composes the different sections of the page.
  * The complex text animation logic has been moved into the self-contained
@@ -16,8 +18,8 @@ function HomePage() {
     <div className={styles.pageWrapper}>
       
       <AnimatedLogo />
+      <milestones />
       <ParallaxIntro />
-      
       <ContactForm />
     </div>
   );

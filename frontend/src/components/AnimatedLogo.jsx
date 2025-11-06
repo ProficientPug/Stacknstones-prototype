@@ -5,7 +5,6 @@ const AnimatedLogo = () => {
   return (
     <div 
       className="animated-logo-container"
-      style={{ width: '1080px' }}
     >
       <svg
          version="1.1"

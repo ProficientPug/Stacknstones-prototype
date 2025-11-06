@@ -1,18 +1,17 @@
 .animated-logo-container {
-  /* Set a height based on the viewport */
-  height: 60vh; /* <-- You can change 60vh to 70vh or 80vh to make it bigger */
+  /* --- THIS IS THE FIX --- */
+  flex-grow: 1; /* This tells the container to "grow" and fill empty space */
   
   /* Flexbox centering */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* --- END FIX --- */
 
-  /* Keep these rules from before */
   width: 100%;
   padding: 1rem;
   margin: 0 auto;
 }
-
 /* --- ADD THIS --- */
 /* This new rule makes the image fill the container */
 .logo-image {

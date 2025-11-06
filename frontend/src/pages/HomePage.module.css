@@ -115,28 +115,21 @@
   .heroCtaButton {
     padding: 0.75rem 2rem; /* Slightly smaller button padding */
   }
-}
 
 
-@media (max-width: 768px) {
-  
-  /* If your layout is a GRID (e.g., .app-container), 
-    tell it to become a single column.
-  */
-  .your-main-layout-container {
-    grid-template-columns: 1fr;
-  }
+  .appContainer {
+    /* If your desktop layout is Grid */
+    grid-template-columns: 1fr; /* Stack into one column */
 
-  /* If your layout is FLEX, tell it to stack.
-  */
-  .your-main-layout-container {
+    /* If your desktop layout is Flex */
     flex-direction: column;
   }
 
-  /* Then, HIDE the sidebar on mobile.
-    (Your hamburger menu will take over)
+  /* Target your SIDEBAR component 
+    (Replace '.sidebar' with your class)
   */
-  .your-sidebar-class-name {
+  .sidebar {
+    /* Hide the desktop sidebar on mobile */
     display: none;
   }
 }

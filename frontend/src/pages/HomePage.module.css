@@ -1,119 +1,97 @@
-/* --- Page & Font Setup --- */
+/*
+ * HOMEPAGE.MODULE.CSS
+ * This file creates the minimal layout.
+ */
+
+/* --- 1. Page Wrapper --- */
 .pageWrapper {
-  /* Switched to a warm, off-white for an elegant, gallery-like feel */
-  background-color: #f4f1ea; 
-  /* Changed default text to a soft, dark charcoal for better readability */
-  color: #2d2d2d; 
-  display: grid;
-  padding: 2rem;
-  grid-template-rows: auto;
-}
-
-.textSectionContainer {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  overflow: hidden;
-  position: relative;
-}
-
-/* --- Hero Content & Typography --- */
-.heroContent {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Increased gap for more breathing room */
-  max-width: 900px; /* Slightly wider for a more spacious feel */
-  position: relative;
-  z-index: 2;
+  /* Uses your warm background color from App.css */
+  background-color: var(--warm-parchment, #f4f1ea);
 }
 
-.heroPhrase {
-  font-size: 1.75rem;
-  font-weight: 400;
-  /* A slightly lighter color for hierarchy */
-  color: #6b6b6b; 
-  letter-spacing: 0.5px;
-  line-height: 1.4;
+/* --- 2. Hero Section --- */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Creates lots of "classy" white space */
+  padding: 6rem 2rem 8rem 2rem; 
+  color: var(--charcoal, #2d2d2d);
 }
 
 .heroHeadline {
-  /* Assumes a modern serif font like 'Playfair Display' or 'Lora' is loaded */
+  /* This font suggestion was in your old file. 
+     If you have it loaded, it will look great. 
+  */
   /* font-family: 'YourSerifFont', serif; */
-  font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 500; /* Softer weight for elegance */
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  /* Removed text gradient for a clean, timeless look */
-  color: #2d2d2d;
-}
-
-.heroTagline {
-  font-size: clamp(1rem, 4vw, 1.25rem);
-  font-weight: 300;
-  color: #555555; /* Adjusted for the light background */
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.wordWrapper {
-  display: inline-block;
-  margin-right: 0.25em;
-  white-space: nowrap;
-}
-
-/* --- Call-to-Action Button --- */
-.heroCtaButton {
-  /* Changed to a refined 'ghost button' style */
-  background-color: transparent;
-  color: #2d2d2d;
-  border: 1px solid #2d2d2d;
-  border-radius: 50px; /* Pill shape for a modern touch */
-  padding: 0.85rem 2.5rem;
-  font-size: 1rem;
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
   font-weight: 500;
-  cursor: pointer;
-  /* Smooth transition for background, color, and transform */
-  transition: all 0.3s ease;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  max-width: 800px; /* Keeps line length readable */
 }
 
-.heroCtaButton:hover {
-  /* Inverts colors on hover for a satisfying interaction */
-  background-color: #2d2d2d;
-  color: #f4f1ea;
-  transform: translateY(-3px); /* Subtle lift effect */
-
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--neutral-text, #6b6b6b);
+  line-height: 1.7;
+  max-width: 600px; /* Keeps line length readable */
 }
 
-/* --- Mobile Adjustments --- */
+/* --- 3. Core Values Section --- */
+.valuesSection {
+  display: grid;
+  /* Creates the 3-column layout on desktop */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 3rem;
+  
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem 8rem 2rem; /* More white space */
+}
+
+.valueItem {
+  /* You can add a subtle border */
+  /* border-top: 1px solid var(--neutral-stone, #e0e0e0); */
+  padding-top: 1rem;
+}
+
+.valueTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal, #2d2d2d);
+  margin-bottom: 0.75rem;
+}
+
+.valueDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--neutral-text, #6b6b6b);
+  margin: 0;
+}
+
+
+/* --- 4. Mobile Adjustments --- */
 @media (max-width: 768px) {
-  .textSectionContainer {
-    padding: 1.5rem; /* Reduce side padding on mobile */
-    flex-direction: column; /* <-- THIS IS THE FIX */
-    /* You may also want to add a gap for spacing */
-    gap: 2rem; 
+  .heroSection {
+    /* Reduce padding on mobile */
+    padding: 4rem 1.5rem 5rem 1.5rem;
   }
 
-  .heroContent {
-    gap: 1.5rem; /* Tighten the vertical spacing between elements */
-    /* Ensure text aligns nicely when stacked */
-    text-align: center; 
+  .valuesSection {
+    /* Stacks the 3 columns into 1 */
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1.5rem 5rem 1.5rem;
   }
-
-  .heroPhrase {
-    font-size: 1.25rem; /* Make the secondary phrases smaller */
+  
+  .valueItem {
+    /* Center text on mobile */
+    text-align: center;
   }
-
-  .heroHeadline {
-    /* Adjust the clamp to have a smaller max size on mobile */
-    font-size: clamp(2.5rem, 10vw, 4rem);
-  }
-
-  .heroCtaButton {
-    padding: 0.75rem 2rem; /* Slightly smaller button padding */
-  }
-
-
 }

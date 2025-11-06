@@ -1,19 +1,22 @@
-/* This rule controls the size and centering of your logo */
 .animated-logo-container {
+  /* Set a height based on the viewport */
+  height: 60vh; /* <-- You can change 60vh to 70vh or 80vh to make it bigger */
+  
+  /* Flexbox centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Keep these rules from before */
   width: 100%;
-  max-width: 768px; /* This is the "big" size you wanted */
-  margin: 0 auto;   /* Centers the logo */
   padding: 1rem;
+  margin: 0 auto;
 }
 
 /* --- ADD THIS --- */
 /* This new rule makes the image fill the container */
 .logo-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block; /* Removes any extra space below the image */
 }
-
-/* All the old animation code (like @keyframes, .svg-elem-1, etc.)
-  is no longer needed and can be deleted from this file.
-*/

@@ -2,7 +2,11 @@
  * Simplified SVG animation code
  * Defines animations once and staggers the delay.
  ***************************************************/
-
+.animated-logo-container {
+  width: 768px;   /* <-- Change this to any "big" size you like (e.g., 250px, 15rem) */
+  margin: 0 auto; /* Optional: This will center the logo container */
+  padding: 1rem;  /* Optional: Adds some breathing room */
+}
 /* 1. Define the black-fill animation ONCE */
 @keyframes animate-fill-black {
   from {

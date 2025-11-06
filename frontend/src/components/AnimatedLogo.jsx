@@ -3,12 +3,10 @@ import './AnimatedLogo.css'; // Make sure this is "AnimatedLogo.css"
 
 const AnimatedLogo = () => {
   return (
-    <div className="animated-logo-container">
-
-      {/* This is the final, cleaned, JSX-compatible SVG code.
-        I have changed all "class" to "className" and fixed "style" attributes.
-      */}
-
+    <div 
+      className="animated-logo-container"
+      style={{ width: '360px' }}
+    >
       <svg
          version="1.1"
          id="svg1"

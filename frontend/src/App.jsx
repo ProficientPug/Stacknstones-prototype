@@ -24,8 +24,6 @@ function App() {
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/about" element={<AboutPage/>} />
         </Routes>
-        
-        <Footer />
       </main>
     </div>
   );

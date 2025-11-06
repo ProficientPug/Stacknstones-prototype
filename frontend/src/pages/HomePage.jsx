@@ -17,7 +17,6 @@ function HomePage() {
     <div className={styles.pageWrapper}>
       
       <AnimatedLogo />
-      <ParallaxIntro />
       <ContactForm />
     </div>
   );

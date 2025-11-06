@@ -77,17 +77,7 @@ screens LARGER than 768px)
 
   /* We bring the sidebar back on desktop.
   */
-  .sidebar {
-    display: block; /* Show the sidebar */
-    
-    /* Re-create the look from your screenshot */
-    background-color: #f4f1ea; /* Your warm off-white */
-    border-right: 1px solid #e0e0e0; /* A soft dividing line */
-    
-    /* This ensures sidebar content scrolls if it's too tall */
-    overflow-y: auto; 
-  }
-
+  
   /* This ensures your main content (Parallax, Contact, etc.)
     scrolls independently of the sidebar.
   */

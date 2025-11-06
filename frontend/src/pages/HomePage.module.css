@@ -117,19 +117,4 @@
   }
 
 
-  .appContainer {
-    /* If your desktop layout is Grid */
-    grid-template-columns: 1fr; /* Stack into one column */
-
-    /* If your desktop layout is Flex */
-    flex-direction: column;
-  }
-
-  /* Target your SIDEBAR component 
-    (Replace '.sidebar' with your class)
-  */
-  .sidebar {
-    /* Hide the desktop sidebar on mobile */
-    display: none;
-  }
 }

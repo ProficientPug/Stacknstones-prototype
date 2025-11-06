@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react'; // <-- 1. Import useRef
 import { useNavigate } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import AnimatedCounter from './AnimatedCounter'; // Make sure this path is correct
+import AnimatedCounter from './AnimatedCounter'; 
 import styles from './ParallaxIntro.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Milestone data is now inside this component
 const milestones = [
   { value: 35, label: 'Years of Experience' },
   { value: 120, label: 'Projects Completed' },
@@ -18,69 +17,74 @@ const milestones = [
 function ParallaxIntro() {
   const navigate = useNavigate();
   const handleNavigateToProjects = () => navigate('/projects');
+  
+  // 2. Create a ref for the main container
+  const container = useRef(null); 
 
+  // 3. Pass the scope to useGSAP
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: `.${styles.parallaxContainer}`,
+        // We can use the ref here for the trigger, which is safer
+        trigger: container.current, 
         start: 'top top',
-        // The animation will now span a scroll distance of 200% of the viewport height
         end: '+=200%', 
-        scrub: 1.5, // Slightly slower scrub for a smoother feel
-        pin: `.${styles.stickyContainer}`,
+        scrub: 1.5, 
+        // And we can use a simple class for the pin
+        pin: '.sticky-container', 
       },
     });
 
-    // 1. Animate the large phrases out
-    tl.to(`.${styles.phrase}`, {
+    // 4. Use simple, non-mangled class names as selectors
+    tl.to('.phrase', {
       opacity: 0,
       scale: 0.8,
       duration: 1,
     });
 
-    // 2. Animate the milestones in, floating from different directions
-    tl.from(`.${styles.milestoneItem}`, {
+    tl.from('.milestone-item', {
       opacity: 0,
-      y: (index) => (index % 2 === 0 ? 100 : -100), // Alternate starting position
+      y: (index) => (index % 2 === 0 ? 100 : -100), 
       x: (index) => (index === 1 ? 0 : (index === 0 ? -100 : 100)),
       scale: 0.5,
       stagger: 0.3,
       duration: 1,
-    }, "-=0.5"); // Overlap with previous animation
+    }, "-=0.5"); 
 
-    // 3. Hold the milestones for a moment, then animate them out
-    tl.to(`.${styles.milestoneItem}`, {
+    tl.to('.milestone-item', {
       opacity: 0,
       scale: 1.5,
       filter: 'blur(10px)',
       stagger: 0.2,
       duration: 1,
-    }, "+=1.5"); // Hold for 1.5 seconds of scroll
+    }, "+=1.5"); 
 
-    // 4. Animate the final headline section in
-    tl.from(`.${styles.headlineSection}`, {
+    tl.from('.headline-section', {
       opacity: 0,
       scale: 0.8,
       duration: 1,
-    }, "-=0.5"); // Overlap for a smooth transition
+    }, "-=0.5"); 
 
-  }, []);
+  }, { scope: container }); // <-- 3. Pass scope here
 
   return (
-    <div className={styles.parallaxContainer}>
-      <div className={styles.stickyContainer}>
-        {/* --- Phrases (Repositioned & Styled via CSS) --- */}
-        <h2 className={`${styles.phrase} ${styles.phraseTopLeft}`}>
+    // 5. Attach the ref to the main container
+    <div className={styles.parallaxContainer} ref={container}>
+      {/* 6. Add the simple class 'sticky-container' for GSAP to find */}
+      <div className={`${styles.stickyContainer} sticky-container`}>
+        
+        {/* 7. Add the simple class 'phrase' */}
+        <h2 className={`${styles.phrase} ${styles.phraseTopLeft} phrase`}>
           Tropical Modernism & Heritage
         </h2>
-        <h2 className={`${styles.phrase} ${styles.phraseBottomRight}`}>
+        <h2 className={`${styles.phrase} ${styles.phraseBottomRight} phrase`}>
           Timelessness, Reimagined.
         </h2>
 
-        {/* --- Milestones (Now part of this component) --- */}
         <div className={styles.milestonesGrid}>
           {milestones.map((milestone, index) => (
-            <div key={index} className={`${styles.milestoneItem} ${styles[`milestonePos${index + 1}`]}`}>
+            // 8. Add the simple class 'milestone-item'
+            <div key={index} className={`${styles.milestoneItem} ${styles[`milestonePos${index + 1}`]} milestone-item`}>
               <h3 className={styles.milestoneValue}>
                 <AnimatedCounter value={milestone.value} />+
               </h3>
@@ -89,8 +93,8 @@ function ParallaxIntro() {
           ))}
         </div>
 
-        {/* --- Final Headline --- */}
-        <div className={styles.headlineSection}>
+        {/* 9. Add the simple class 'headline-section' */}
+        <div className={`${styles.headlineSection} headline-section`}>
           <h1 className={styles.heroHeadline}>Building Tomorrow's Visions.</h1>
           <p className={styles.heroTagline}>
             Expert constructions for residential and commercial projects.

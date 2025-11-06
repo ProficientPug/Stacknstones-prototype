@@ -54,3 +54,35 @@ body {
 }
 
 
+/*
+========================================
+DESKTOP OVERRIDES
+(This "min-width" query only applies to
+screens LARGER than 768px)
+========================================
+*/
+
+@media (min-width: 769px) {
+
+  /* On desktop, we re-define the grid to be
+    two columns: one for the sidebar, one for the content.
+  */
+  .appContainer {
+    /* Example: 240px sidebar, 1fr for the rest */
+    grid-template-columns: 240px 1fr; 
+    
+    /* Make the layout fill the screen height */
+    height: 100vh; 
+  }
+
+  /* We bring the sidebar back on desktop.
+  */
+  
+  /* This ensures your main content (Parallax, Contact, etc.)
+    scrolls independently of the sidebar.
+  */
+  .mainContent {
+    overflow-y: auto;
+    height: 100vh;
+  }
+}

@@ -82,4 +82,21 @@ export const processUpdates = [
   id: 20, 
   imageUrl: 'img20.jpg' 
  },
+ { 
+  id: 21, 
+  imageUrl: 'img21.jpg' 
+ },
+ { 
+  id: 22, 
+  imageUrl: 'img22.jpg' 
+ },
+ { 
+  id: 23, 
+  imageUrl: 'img23.jpg' 
+ },
+ { 
+  id: 24, 
+  imageUrl: 'img24.jpg' 
+ }
+
 ];
